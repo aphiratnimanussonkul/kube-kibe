@@ -9,3 +9,6 @@ $ kubectl get configMap -n atta
 
 ### Create deployment
 $ kubectl apply -f deployment.yml
+
+### Create service NodePort
+$ kubectl apply -f service.yml
