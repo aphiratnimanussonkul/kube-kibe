@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress 
+metadata: 
+  name: atta-ingress
+  namespace: atta
+  annotations: 
+    kubernetes.io/elb.class: union
+    kubernetes.io/elb.id: 67a4a763-72c0-44b1-8849-da8145c80178
+    kubernetes.io/elb.port: "80"
+spec:
+  rules: 
+  - host: 'atta.lessex.company'
+    http:
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: nginx
+              port:
+                number: 80
+          property:
+            ingress.beta.kubernetes.io/url-match-mode: STARTS_WITH
